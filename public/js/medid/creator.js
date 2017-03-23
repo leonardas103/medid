@@ -19,11 +19,13 @@ define(['jquery'], function($) {
 			label = $(this).find('.medid-label').val();
 			field = $(this).find('.medid-field').val();
 
-			if (label == "") {
-        fields.push({field: field});
-			} else {
-				fields.push({label: label, field: field})
-			}
+			//if (label == "") {
+      //  fields.push({field: field});
+			//} else {
+			//	fields.push({label: label, field: field})
+			//}
+
+      fields.push({label: label, field: field});
 
       // Thijs: We might want to get rid of this part
       if (label == "Name") {
@@ -68,6 +70,24 @@ define(['jquery'], function($) {
 			$(this).parent().parent().remove();
 		});
 	});
+
+  $('.saveCard').on('click', function() {
+    $.ajax({
+      type: 'POST',
+      data: JSON.stringify(creator.fields()),
+      contentType: 'application/json',
+      url: '/save/card'
+    });
+  });
+
+  $('.saveDoc').on('click', function() {
+    $.ajax({
+      type: 'POST',
+      data: JSON.stringify(creator.fields()),
+      contentType: 'application/json',
+      url: '/save/document'
+    });
+  });
 
   return creator;
 });

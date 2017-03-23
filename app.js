@@ -13,12 +13,12 @@ var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://root:toor@med-shard-00-00-mgwxu.mongodb.net:27017,med-shard-00-01-mgwxu.mongodb.net:27017,med-shard-00-02-mgwxu.mongodb.net:27017/loginapp?ssl=true&replicaSet=med-shard-0&authSource=admin');
 //mongoose.connect('mongodb://localhost/loginapp');
-
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var create = require('./routes/create');
+var save = require('./routes/save');
 
 // Init App
 var app = express();
@@ -82,6 +82,8 @@ app.use(function (req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/create', create);
+app.use('/save', save);
+
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));
