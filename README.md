@@ -1,5 +1,5 @@
 # 2017-Medical-ID
-heroku preview: [VIEW](https://medid.herokuapp.com/)
+htmlpreview: [VIEW](https://medid.herokuapp.com/)
 
 ### cmd Reminders ###
 

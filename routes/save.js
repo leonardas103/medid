@@ -10,7 +10,7 @@ router.post('/card', function(req, res){
 		// needs improvement
 		if(err) throw err;
 	});
-	req.flash('success_msg', 'Data successfully stored');
+	// req.flash('success_msg', 'Data successfully stored');
 	console.log(req.user); // for testing
 	res.end();
 });
@@ -21,9 +21,29 @@ router.post('/document', function(req, res){
 		// needs improvement
 		if(err) throw err;
 	});
-	req.flash('success_msg', 'Data successfully stored');
+	// req.flash('success_msg', 'Data successfully stored');
 	console.log(req.user); // for testing
 	res.end();
+});
+
+router.get('/document', function(req, res) {
+	if (req.user) {
+		res.json(req.user.document);
+	} else {
+		res.sendFile('json/guestDocument.json', {root: __dirname + '/../public/'});
+	}
+});
+
+router.get('/card', function(req, res) {
+	if (req.user) {
+		if (req.user.card.length > 0) {
+			res.json(req.user.card);
+		} else {
+			res.sendFile('json/guestCard.json', {root: __dirname + '/../public/'});
+		}
+	} else {
+		res.sendFile('json/guestCard.json', {root: __dirname + '/../public/'});
+	}
 });
 
 module.exports = router;
