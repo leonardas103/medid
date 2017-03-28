@@ -114,17 +114,3 @@ body {
 #creatorFormLoading {
   margin-left: 200px;
 }
-
-.addField {
-	cursor: pointer;
-}
-
-.clickable {
-	cursor: pointer;
-	margin-left: 5px;
-	margin-right: 5px;
-}
-
-#message {
-	color: green;
-}
