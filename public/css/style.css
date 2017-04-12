@@ -111,7 +111,7 @@ body {
 	display: block;
 }
 
-.addField {
+.addField, .addImage {
 	cursor: pointer;
 }
 
@@ -125,12 +125,25 @@ body {
 	color: green;
 }
 
+#error {
+	color: red;
+}
+
+.previewImg {
+	max-height: 100px;
+	max-width: 100px;
+}
+
+#profile-profpic {
+	max-width: 300px;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 500px) {
 	body {
-		font-size: 12px;
+		font-size: 16px;
 	}
-	
+
 	.jumbotron {
 		background: #1c2e60;
 	}
@@ -146,8 +159,9 @@ body {
 }
 
 @media (max-width: 767px) {
-	
   body {
 	  margin: 0;
   }
+
+
 }
